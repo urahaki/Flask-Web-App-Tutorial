@@ -14,6 +14,7 @@
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="/website/styles/style.css" />
 
     <title>{% block title %}Home{% endblock %}</title>
   </head>
@@ -75,17 +76,17 @@
       crossorigin="anonymous"
     ></script>
 
-{% block javascript %}
+    {% block javascript %}
     <script type="text/javascript">
       function deleteNote(noteId) {
-  fetch("/delete-note", {
-    method: "POST",
-    body: JSON.stringify({ noteId: noteId }),
-  }).then((_res) => {
-    window.location.href = "/";
-  });
-  }
-</script>
-{% endblock %}
+        fetch("/delete-note", {
+          method: "POST",
+          body: JSON.stringify({ noteId: noteId }),
+        }).then((_res) => {
+          window.location.href = "/";
+        });
+      }
+    </script>
+    {% endblock %}
   </body>
 </html>
